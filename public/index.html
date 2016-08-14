@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <title>NFL Crash Course</title>
+    <!--Bootstrap latest compiled and minified CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="content/app.css">
+    <link rel="shortcut icon" href="">
+</head>
+<body>
+  
+    <!--Header-->
+    <!--NEED TO MAKE-->
+  
+    <!--Main Content That Changes Based on Route-->
+    <ng-view></ng-view>
+
+    <!--Third-party JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+    <!-- Paste your unique Firebase script tag here -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+  
+    <!--Main App Module-->
+    <script src="app/app.module.js"></script>
+
+    <!--Landing Module-->
+    <script src="app/landing/landing.module.js"></script>
+    <script src="app/landing/config.route.js"></script>
+    <script src="app/landing/landing.controller.js"></script>
+  
+    <!--Waitlist Module-->
+    <script src="app/pickteam/pickTeam.module.js"></script>
+    <script src="app/pickteam/config.route.js"></script>  
+    <script src="app/pickteam/pickTeam.controller.js"></script>
+  
+    <!--Diagnostic 1 Module-->
+    <script src="app/diag1/diag1.module.js"></script>
+    <script src="app/diag1/config.route.js"></script>
+    <script src="app/diag1/diag1.controller.js"></script>
+  
+    <!--Diagnostic 2 Module-->
+    <script src="app/diag2/diag2.module.js"></script>
+    <script src="app/diag2/config.route.js"></script>
+    <script src="app/diag2/diag2.controller.js"></script>
+  
+    <!--Diagnostic 3 Module-->
+    <script src="app/diag3/diag3.module.js"></script>
+    <script src="app/diag3/config.route.js"></script>
+    <script src="app/diag3/diag3.controller.js"></script>
+  
+    <!--Game Services-->
+    <script src="app/gameServices/gameServices.module.js"></script>
+    <script src="app/gameServices/timer.service.js"></script>
+  
+    <!--Team Data-->
+    <script src="app/data/teamData.js"></script>
+    <script src="app/data/playerData.js"></script>
+    <script src="app/data/scoreData.js"></script>
+  
+</body>
+</html>

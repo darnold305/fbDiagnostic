@@ -1,0 +1,184 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background: #f5f5f5;
+  background-image: url('https://static.pexels.com/photos/4198/field-sport-ball-america.jpg');
+  background-size: 100%;
+  
+}
+
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+#formdiv {
+    margin: 0 auto
+    width:80%
+}
+
+.teamLogo {
+    width: 120px;
+    height: 80px;
+    padding: 5px;
+}
+
+li {
+    padding: 10px;
+    list-style-type: none
+}
+
+p {
+    font-size: 30px;
+}
+
+.gameHeader {
+  padding-left:10px;
+}
+
+#gameHeaderFirstName {
+  color: white;
+  background-color: darkblue
+}
+
+.gameHeaderFavoriteTeam {
+  background-color: lightgray;
+}
+
+.gameHeaderScore{
+  background-color: lightblue;
+}
+
+.gameHeaderRound{
+  background-color: lightgreen;
+}
+
+td {
+    
+}
+
+#diag1Text {
+    font-size: 30px;
+}
+
+#diag1Timer {
+    font-size: 50px;
+    font-style: bold;
+    border: solid;
+    width: 500px
+}
+
+.instructions {
+  text-align:center;
+  transition: .8s;
+  overflow: hidden;
+}
+
+.instructions.hidden {
+  max-height: 0;
+}
+
+input {
+  text-transform: uppercase
+}
+
+playerTables {
+  width:30%
+}
+
+.numberColumn {
+  width:5%
+}
+
+.positionColumn {
+  width:5%
+}
+
+.tablePositionHeader {
+  text-align: center;
+  font-size: 125%;
+  background-color:aliceblue
+}
+
+#rightAnswerPlayerCard p{
+  width:150px;
+  font-size:15px;
+  color:slategray
+}
+
+.weekColumn{
+  width:10%;
+  background-color: aliceblue;
+  text-align:center
+}
+
+.answerColumn{
+  font-size: 20px;
+  width:20%;
+  text-align: center
+}
+
+.diag2AnswerChoice:hover { 
+  background-color: #adffcf;
+}
+
+.clicked{
+  background-color: #33ff88    
+}
+
+.wrong{
+  background-color: #F71414
+}
+
+.timer{
+  font-size: 30px;
+  border: solid;
+  width: 100px;
+}
+
+.timerBox{
+  padding:20px;
+}
+
+.didNotGuessAnswer{
+  color:lightgray
+}
+
+.gameOverMessage{
+  color:red
+}
+
+.round1Instructions{
+  font-size: 25px;
+}
+
+#gameMastHead{
+  height: 50px;
+  background-color:lightgray;
+  color: black;
+}
+
+
+#landingPage{
+  vertical-align: middle
+}
+
+#landingPageHeaderText{
+  color: white; 
+  vertical-align: middle
+}

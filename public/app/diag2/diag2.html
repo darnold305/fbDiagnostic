@@ -1,0 +1,81 @@
+<!--
+To-Dos:
+1. Ng-click: gameStarted = true. Move to function as best practice
+-->
+
+<div id="gameMastHead" class="text-center">
+  <p>Football Crash Course</p>
+</div>
+
+
+<div id="gameHeaderDiv" class="row text-center">    
+  <p id="gameHeaderFirstName">{{vm.firstName}}</p>
+  <div class="col-md-4">
+    <p class="gameHeader gameHeaderFavoriteTeam">{{vm.teamName}}</p>
+  </div>
+  <div class="col-md-4">
+    <p class="gameHeader gameHeaderRound">Round 2 of 3</p>
+  </div>    
+  <div class="col-md-4">
+    <p class="gameHeader gameHeaderScore">Your Score: {{vm.score}} / 16 </p>
+  </div>    
+</div>
+
+
+<div class="row" ng-class="{'hidden' : gameStarted}">
+  <p class="instructions">Which games did the {{vm.teamName}} win last year?</p>
+  
+</div>
+
+
+<button class="text-center center-block btn-lg btn-success" ng-click="vm.getScoresByTeam()" ng-hide="vm.gameStarted || gameOver">LET's GO!</button>
+
+
+
+<div class="container" ng-show="vm.gameStarted && !model.timer.isGameOver">
+  <div class="text-center center-block timerBox">
+      <div class='timer center-block'>{{model.timer.timeRemaining}}</div>
+  </div>
+  
+  <table class="playerTables table table-bordered">
+    <tr>
+      <th class="tablePositionHeader">Week</th>
+      <th class="tablePositionHeader">{{vm.teamName}}</th>
+      <th class="tablePositionHeader">Opponent</th>
+    </tr>  
+    <tr ng-repeat="week in vm.scoresByTeam">
+      <td class="weekColumn">{{week.week}}</td>
+      <td sibs class="answerColumn diag2AnswerChoice" ng-click='vm.getAnswers($index,vm.teamKey)'>{{vm.teamKey}}</td>
+      <td sibs class="answerColumn diag2AnswerChoice" ng-click='vm.getAnswers($index,week.opponent)'>{{week.opponent}}</td>
+    </tr>
+  </table>
+  <button class="text-center center-block btn btn-success" ng-click="vm.checkAnswers()">SUBMIT ANSWERS</button>
+</div>
+
+  
+<div class="center-block text-center gameOverMessage" ng-show="model.timer.isGameOver">
+  <p>Round 2 (of 3) over</p>
+  <a href=#/diagnostic/three><button class="btn-lg btn-primary">Start Round 3</button></a>
+</div>
+
+<div class="container" ng-show="model.timer.isGameOver">
+  <table class="playerTables table table-bordered">
+    <tr>
+      <th class="tablePositionHeader">Week</th>
+      <th class="tablePositionHeader">{{vm.teamName}}</th>
+      <th class="tablePositionHeader">Opponent</th>
+      <th class="tablePositionHeader">Actual Score</th>
+    </tr>  
+    <tr ng-repeat="week in vm.scoresByTeam">
+      <td class="weekColumn">{{week.week}}</td>
+      <td ng-class="{'clicked' : week.guess==vm.teamKey,
+                     'wrong': !week.answeredCorrectly && week.guess==week.opponent
+                    }"
+                    class="answerColumn">{{vm.teamKey}}</td>
+      <td ng-class="{'clicked':week.guess==week.opponent, 
+                    'wrong': !week.answeredCorrectly && week.guess==vm.teamKey}"
+                    class="answerColumn">{{week.opponent}}</td>
+      <td class="answerColumn">{{week.teamScore}} - {{week.opponentScore}}</td>
+    </tr>
+  </table>
+</div>

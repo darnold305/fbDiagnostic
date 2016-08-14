@@ -1,0 +1,24 @@
+<!--
+<div class="gameMastHead jumbotron text-center">
+  <h1 id="title">Football Crash Course</h1>
+  <h2><em>How well do you know your team?</em></h2>
+</div>
+-->
+
+<div class="container center-block">
+    <div id="landingPage" class="row">
+      <h3 id="landingPageHeaderText" class="text-center center-block">How big of a fan are you?</h3>
+    </div>
+  <br>
+    <div class="col-xs-4 col-xs-offset-4">
+      <form>
+        <input type="name" ng-model="vm.firstName" class="input-lg form-control" id="userFirstName" placeholder="Name" required>
+        <br>
+        <button class="btn btn-primary center-block" ng-click="vm.addUser()">GET STARTED</button>
+      </form>
+    </div>
+  </div>
+
+{{vm.newUser}}
+<br>
+{{vm.user}}

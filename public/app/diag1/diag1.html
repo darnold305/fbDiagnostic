@@ -1,0 +1,72 @@
+<div id="gameMastHead" class="text-center">
+  <p>Football Crash Course</p>
+</div>
+
+<div id="gameHeaderDiv" class="row text-center">    
+  <p id="gameHeaderFirstName">{{vm.firstName}}</p>
+  <div class="col-md-4">
+    <p class="gameHeader gameHeaderFavoriteTeam">{{vm.teamName}}</p>
+  </div>
+  <div class="col-md-4">
+    <p class="gameHeader gameHeaderRound">Round 1 of 3</p>
+  </div>    
+  <div class="col-md-4">
+    <p class="gameHeader gameHeaderScore">Your Score: {{vm.score}} / {{vm.maxScore}} </p>
+  </div>    
+</div>
+
+<div class="row" ng-class="{'hidden' : vm.gameStarted}">
+  <p class="instructions">How many players can you name? Test your knowledge against other {{vm.teamName}} fans</p>
+  <button ng-click="vm.buildPlayerList()" class="text-center center-block btn btn-lg btn-success">LET'S GO!</button>
+</div>
+
+<div class="row" ng-show="vm.gameStarted && model.timer.isTimeLeft">
+  <div class="text-center timerBox col-xs-4">
+    <div class='timer center-block'>{{model.timer.timeRemaining}}</div>
+  </div>
+
+  <div id="playerEntryDiv" class="col-xs-4">
+    <p class="text-center round1Instructions">Name as many players as you can</p>
+    <input type="name" class="input-lg form-control" ng-model="vm.playerGuess" ng-keyup="vm.checkAnswer(vm.playerGuess)" placeholder="Guess Player Name" autofocus>
+  </div>
+  
+  <div class="col-xs-4" id="rightAnswerPlayerCard" ng-show="vm.displayRightAnswer">
+    <div class="col-xs-4">
+      <img ng-src="{{vm.correctPlayer.PhotoUrl}}">
+    </div>
+    <div class="col-xs-4">
+      <p>{{vm.correctPlayer.Name}}</p>
+      <p>Position: {{vm.correctPlayer.Position}}</p>
+      <p>Number: {{vm.correctPlayer.Number}}</p>
+      <p>College: {{vm.correctPlayer.College}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="center-block text-center gameOverMessage" ng-show="model.timer.isGameOver">
+  <p>Round 1 (of 3) over</p>
+  <a href=#/diagnostic/two><button class="btn-lg btn-primary">Start Round 2</button></a>
+</div>
+
+<br>
+
+<div class="container" ng-show="vm.gameStarted">
+  <div class="row">
+    <div class="col-md-3" ng-repeat="positionTypes in vm.positionsArray">
+      <h3>{{positionTypes.PositionType}}</h3>
+      <table ng-repeat="positions in positionTypes.Positions" class="playerTables table table-bordered">
+        <tr>
+          <th class="tablePositionHeader" colspan=3>{{positions}}</th>
+        </tr>
+        <tr>
+          <tr ng-repeat="player in vm.currentPlayerArray | filter : {Position: positions} : true">
+            <th ng-class="player.Guessed ? 'guessedAnswer' : 'didNotGuessAnswer'" ng-show="player.Guessed || !model.timer.isTimeLeft">{{player.Number}}</th>
+            <th ng-class="player.Guessed ? 'guessedAnswer' : 'didNotGuessAnswer'" ng-show="player.Guessed || !model.timer.isTimeLeft">{{player.Position}}</th>
+            <th ng-class="player.Guessed ? 'guessedAnswer' : 'didNotGuessAnswer'" ng-show="player.Guessed || !model.timer.isTimeLeft">{{player.Name}}</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<button ng-show="vm.timeLeft" class="center-block text-center btn-lg btn-danger" ng-click="vm.giveUp()">GIVE UP</button>

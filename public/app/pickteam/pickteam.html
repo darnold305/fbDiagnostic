@@ -1,0 +1,20 @@
+<!--Welcome Note to First User-->
+<div id="gameHeaderDiv" class="row text-center">    
+  <p>Welcome to Football Crash Course</p>
+  <p id="gameHeaderFirstName">{{vm.firstName}}</p>
+  <p>Choose your favorite team</p>
+</div>
+
+<!--Display team logos and take in the user's favorite team-->
+<ul class="col-sm-3">
+  <img class="teamLogo" ng-repeat="team in vm.teams | limitTo : 8 : 0" ng-click="vm.pickTeam(team.name, team.team)" ng-src="{{team.img}}">
+</ul>
+<ul class="col-sm-3">
+  <img class="teamLogo" ng-repeat="team in vm.teams | limitTo : 8 : 8"  ng-click="vm.pickTeam(team.name, team.team)" ng-src="{{team.img}}">
+</ul>
+<ul class="col-sm-3">
+  <img class="teamLogo" ng-repeat="team in vm.teams | limitTo : 8 : 16"  ng-click="vm.pickTeam(team.name, team.team)" ng-src="{{team.img}}">
+</ul>
+<ul class="col-sm-3">
+  <img class="teamLogo" ng-repeat="team in vm.teams | limitTo : 8 : 24"  ng-click="vm.pickTeam(team.name, team.team)" ng-src="{{team.img}}">
+</ul>
